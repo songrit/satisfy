@@ -3,7 +3,21 @@
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
-    <h1>Please rate our service</h1>
+    <h1>Please rate our service now...</h1>
+    <script charset="utf-8">
+      navigator.camera.getPicture(onSuccess, onFail, {
+        quality: 100,
+        destinationType: Camera.DestinationType.DATA_URL
+      });
+
+      function onSuccess(imageData) {
+          // here we can upload imageData to the server
+      }
+
+      function onFail(message) {
+          alert('Failed because: ' + message);
+      }
+    </script>
     <div class="list card">
 
       <a href="#" class="item item-icon-left">
