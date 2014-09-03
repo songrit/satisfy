@@ -11,6 +11,46 @@ angular.module('starter.controllers', [])
   ];
 })
 
+.controller('SatisfyCtrl', function($scope, $stateParams) {
+  var db = new PouchDB('clicks');
+  var remote = 'http://localhost:9292/localhost:5984/clicks';
+  var opts = {live: true};
+
+  db.replicate.to(remote, opts,function(err,resp) {
+    if (err) {
+      console.log('replicate err');
+    }
+  });
+
+  $scope.clickHappy = function() {
+    console.log('happy clicked');
+    createClick(0);
+  };
+  $scope.clickNormal = function() {
+    console.log('normal clicked');
+    createClick(1);
+  };
+  $scope.clickSad = function() {
+    console.log('sad clicked');
+    createClick(2);
+  };
+
+  createClick = function(mood){
+    var click = {
+      _id: new Date().toISOString(),
+      mood: mood
+    };
+    db.put(click, function callback(err, result) {
+      if (!err) {
+        db.info(function(err,info) {
+          console.log(info);
+        } )
+      }
+    });
+  };
+
+})
+
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 

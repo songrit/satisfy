@@ -7,6 +7,7 @@
 angular.module('starter', ['ionic', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
+  console.log('app.js');
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -35,7 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent' :{
           templateUrl: "templates/satisfy.html",
-          controller: 'PlaylistsCtrl'
+          controller: 'SatisfyCtrl'
         }
       }
     })

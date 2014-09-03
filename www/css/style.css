@@ -1,1 +1,5 @@
 /* Empty. Add your own CSS if you like */
+.message {
+  margin: 0 auto; text-align: center;
+  font-size: large; padding-top: 20px; color: chocolate;
+}
