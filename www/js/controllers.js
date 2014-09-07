@@ -25,14 +25,17 @@ angular.module('starter.controllers', [])
   $scope.clickHappy = function() {
     console.log('happy clicked');
     createClick(0);
+    getPhoto();
   };
   $scope.clickNormal = function() {
     console.log('normal clicked');
     createClick(1);
+    getPhoto();
   };
   $scope.clickSad = function() {
     console.log('sad clicked');
     createClick(2);
+    getPhoto();
   };
 
   createClick = function(mood){
@@ -46,6 +49,25 @@ angular.module('starter.controllers', [])
           console.log(info);
         } )
       }
+    });
+  };
+
+
+  console.log('navigator.camera is '+navigator.camera);
+
+  getPhoto = function() {
+    Camera.getPicture().then(function(imageURI) {
+        console.log(imageURI);
+        $scope.lastPhoto = imageURI;
+        // $scope.upload(); <-- call to upload the pic
+    },
+    function(err) {
+        console.err(err);
+    }, {
+        quality: 75,
+        targetWidth: 320,
+        targetHeight: 320,
+        saveToPhotoAlbum: true
     });
   };
 

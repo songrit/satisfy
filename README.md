@@ -8,6 +8,11 @@ Satisfaction
 - settings
 - dashboard
 
+## Set Up
+```bash
+$ corsproxy
+```
+
 ## Technical Notes
 
 ### PouchDB Getting Started
@@ -16,6 +21,12 @@ http://pouchdb.com/getting-started.html
 ### CORS proxy
 https://briantoth.github.io/Tutorial/2013/04/07/pouchdb-replication/
 
+
+## Links
+http://127.0.0.1:5984/_utils/database.html?clicks
+
+
+---
 
 Ionic App Base
 =====================
