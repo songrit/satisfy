@@ -50,6 +50,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angles'])
         }
       }
     })
+    .state('app.data', {
+      url: "/data",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/data.html",
+          controller: 'DataCtrl'
+        }
+      }
+    })
 
     .state('app.browse', {
       url: "/browse",

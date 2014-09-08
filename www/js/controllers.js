@@ -1,8 +1,19 @@
 angular.module('starter.controllers', [])
+.run(function($rootScope) {
+  $rootScope.db = new PouchDB('clicks');
+  $rootScope.remote = 'http://localhost:9292/localhost:5984/clicks';
+  $rootScope.opts = {live: true};
+})
 
 .controller('AppCtrl', function($scope) {
 })
-
+.controller('DataCtrl', function($scope, $rootScope, $stateParams) {
+  $rootScope.db.allDocs({include_docs: true, descending: true}, function(err, doc) {
+    $scope.$apply(function() {
+      $scope.clicks = doc.rows;
+    })
+  });
+})
 .controller('ReportCtrl', function($scope) {
   $scope.chart = {
     labels : ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -23,6 +34,7 @@ angular.module('starter.controllers', [])
         }
     ],
   };
+
 })
 
 .controller('PlaylistsCtrl', function($scope) {
@@ -33,12 +45,12 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('SatisfyCtrl', function($scope, $stateParams) {
-  var db = new PouchDB('clicks');
-  var remote = 'http://localhost:9292/localhost:5984/clicks';
-  var opts = {live: true};
+.controller('SatisfyCtrl', function($scope, $rootScope, $stateParams) {
+  // var db = new PouchDB('clicks');
+  // var remote = 'http://localhost:9292/localhost:5984/clicks';
+  // var opts = {live: true};
 
-  db.replicate.to(remote, opts,function(err,resp) {
+  $rootScope.db.replicate.to($rootScope.remote, $rootScope.opts,function(err,resp) {
     if (err) {
       console.log('replicate err');
     }
@@ -65,9 +77,9 @@ angular.module('starter.controllers', [])
       _id: new Date().toISOString(),
       mood: mood
     };
-    db.put(click, function callback(err, result) {
+    $rootScope.db.put(click, function callback(err, result) {
       if (!err) {
-        db.info(function(err,info) {
+        $rootScope.db.info(function(err,info) {
           console.log(info);
         } )
       }
@@ -129,4 +141,17 @@ angular.module('starter.controllers', [])
         var ft = new FileTransfer();
         ft.upload(myImg, encodeURI("https://example.com/posts/"), onUploadSuccess, onUploadFail, options);
     }
+})
+
+.filter('mood_text', function () {
+  return function (item) {
+    switch(item) {
+      case(0):
+        return "Happy";
+      case(1):
+        return "Normal";
+      case(2):
+        return "Sad";
+    }
+  };
 })

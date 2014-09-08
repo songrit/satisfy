@@ -28,6 +28,8 @@ http://pouchdb.com/getting-started.html
 ### CORS proxy
 https://briantoth.github.io/Tutorial/2013/04/07/pouchdb-replication/
 
+### Angles
+http://lgsilver.github.io/angles/
 
 ## Links
 http://127.0.0.1:5984/_utils/database.html?clicks
