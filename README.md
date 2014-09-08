@@ -6,6 +6,10 @@ Satisfaction
 - sync click to cloud
 - take photo
 - dashboard
+  - http://lgsilver.github.io/angles/
+  - https://github.com/lgsilver/angles
+  - http://forum.ionicframework.com/t/angular-charts-inside-ionic/610/2
+  - http://chinmaymk.github.io/angular-charts/
 - settings
 - set up station; code, name, picture
 - dashboard with station

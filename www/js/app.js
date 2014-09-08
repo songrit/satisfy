@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'angles'])
 
 .run(function($ionicPlatform) {
   console.log('app.js');
@@ -41,11 +41,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-    .state('app.search', {
-      url: "/search",
+    .state('app.report', {
+      url: "/report",
       views: {
         'menuContent' :{
-          templateUrl: "templates/search.html"
+          templateUrl: "templates/report.html",
+          controller: 'ReportCtrl'
         }
       }
     })
