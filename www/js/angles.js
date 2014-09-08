@@ -1,7 +1,7 @@
 var angles = angular.module("angles", []);
 
 angles.chart = function (type) {
-    return { 
+    return {
         restrict: "A",
         scope: {
             data: "=",
@@ -25,10 +25,9 @@ angles.chart = function (type) {
 	                $elem.width($elem.parent().width());
 	                ctx.canvas.width = $elem.width();
 	            } else {
-	                ctx.canvas.width = $scope.width || ctx.canvas.width;
+	                ctx.canvas.width = $scope.width || $elem.width || window.innerWidth || ctx.canvas.width;
 	                autosize = true;
 	            }
-
                 if($scope.height <= 0){
                     $elem.height($elem.parent().height());
                     ctx.canvas.height = ctx.canvas.width / 2;
@@ -41,13 +40,13 @@ angles.chart = function (type) {
             $scope.$watch("data", function (newVal, oldVal) {
                 if(chartCreated)
                     chartCreated.destroy();
-                    
+
                 // if data not defined, exit
                 if (!newVal) {
                     return;
                 }
                 if ($scope.chart) { type = $scope.chart; }
-                
+
                 if(autosize){
                     $scope.size();
                     chart = new Chart(ctx);
