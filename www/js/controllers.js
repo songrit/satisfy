@@ -52,23 +52,24 @@ angular.module('starter.controllers', [])
     });
   };
 
-
-  console.log('navigator.camera is '+navigator.camera);
-
   getPhoto = function() {
-    Camera.getPicture().then(function(imageURI) {
-        console.log(imageURI);
-        $scope.lastPhoto = imageURI;
-        // $scope.upload(); <-- call to upload the pic
-    },
-    function(err) {
-        console.err(err);
-    }, {
+    options = {
         quality: 75,
         targetWidth: 320,
         targetHeight: 320,
-        saveToPhotoAlbum: true
-    });
+        saveToPhotoAlbum: true,
+        cameraDirection: 1
+    };
+		navigator.camera.getPicture(
+			function (imageURI) {
+				//console.log("got camera success ", imageURI);
+				$scope.mypicture = imageURI;
+				},
+			function (err) {
+				//console.log("got camera error ", err);
+				// error handling camera plugin
+				},
+			options);
   };
 
 })

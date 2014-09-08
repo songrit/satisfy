@@ -5,8 +5,11 @@ Satisfaction
 - record click
 - sync click to cloud
 - take photo
-- settings
 - dashboard
+- settings
+- set up station; code, name, picture
+- dashboard with station
+- camera without user interface http://cell0907.blogspot.com/2014/01/android-camera-capture-without.html
 
 ## Set Up
 ```bash
