@@ -2,10 +2,11 @@ Satisfaction
 ============
 
 ## To do
-- record click
-- sync click to cloud
-- take photo
-- dashboard
+- :ok: set up iris server
+- :ok: sync click to cloud
+- :ok: record click
+- :ok: take photo
+- :ok: dashboard
   - http://lgsilver.github.io/angles/
   - https://github.com/lgsilver/angles
   - http://forum.ionicframework.com/t/angular-charts-inside-ionic/610/2
@@ -13,7 +14,10 @@ Satisfaction
 - settings
 - set up station; code, name, picture
 - dashboard with station
-- camera without user interface http://cell0907.blogspot.com/2014/01/android-camera-capture-without.html
+- set up security for iriscloud
+  - http://guide.couchdb.org/draft/security.html
+- camera without user interface
+  - http://cell0907.blogspot.com/2014/01/android-camera-capture-without.html
 
 ## Set Up
 ```bash
@@ -21,6 +25,9 @@ $ corsproxy
 ```
 
 ## Technical Notes
+
+### cors proxy in device
+may not need corsproxy in device
 
 ### PouchDB Getting Started
 http://pouchdb.com/getting-started.html

@@ -30,7 +30,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angles'])
       templateUrl: "templates/menu.html",
       controller: 'AppCtrl'
     })
-
     .state('app.satisfy', {
       url: "/satisfy",
       views: {
@@ -40,7 +39,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angles'])
         }
       }
     })
-
     .state('app.report', {
       url: "/report",
       views: {
@@ -59,34 +57,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angles'])
         }
       }
     })
-
-    .state('app.browse', {
-      url: "/browse",
+    .state('app.settings', {
+      url: "/settings",
       views: {
         'menuContent' :{
-          templateUrl: "templates/browse.html"
+          templateUrl: "templates/settings.html",
+          controller: 'DataCtrl'
         }
       }
     })
-    .state('app.playlists', {
-      url: "/playlists",
+    .state('app.about', {
+      url: "/about",
       views: {
         'menuContent' :{
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
+          templateUrl: "templates/about.html",
+          controller: 'DataCtrl'
         }
       }
     })
-
-    .state('app.single', {
-      url: "/playlists/:playlistId",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/playlist.html",
-          controller: 'PlaylistCtrl'
-        }
-      }
-    });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/satisfy');
 });

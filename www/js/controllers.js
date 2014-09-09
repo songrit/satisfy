@@ -1,7 +1,8 @@
 angular.module('starter.controllers', [])
 .run(function($rootScope) {
   $rootScope.db = new PouchDB('clicks');
-  $rootScope.remote = 'http://localhost:9292/localhost:5984/clicks';
+  $rootScope.remote = 'http://songrit.iriscouch.com/clicks';
+  // $rootScope.remote = 'http://localhost:9292/localhost:5984/clicks';
   $rootScope.opts = {live: true};
 })
 
